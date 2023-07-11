@@ -1,10 +1,38 @@
-const url = "https://pokeapi.co/api/v2/item"
+const url = "https://pokeapi.co/api/v2/item";
 
-const form = document.querySelector("form")
-const div = document.querySelector("div")
+const form = document.querySelector("form");
+const input = document.querySelector("input")
+const div = document.querySelector("div");
+const item = document.querySelector(".item");
+const button = document.querySelector("button")
 
+button.addEventListener("click", (event) => {
+  event.preventDefault();
+  const name = input.value;
 
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    
-})
+  fetch(`${url}/${name}`)
+    .then((data) => data.json())
+    .then((json) => {
+      console.log(json);
+      showItem(json);
+    })
+    .catch((err) => showError(err));
+});
+
+function showItem(json) {
+  item.innerHTML = `
+    <article>
+        <img src="${json.sprites.default}" alt=${json.name}/>
+        <h2>${json.name}</h2>
+    </article>
+`
+}
+
+function showError(err) {
+  item.innerHTML = `
+    <div class="error">
+        <p>An error has occured!</p>
+        <p class="message">${err}</p>
+    </div>
+    `;
+}
