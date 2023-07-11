@@ -20,11 +20,12 @@ button.addEventListener("click", (event) => {
 });
 
 function showItem(json) {
-  item.innerHTML = `
+  item.innerHTML += `
     <article>
         <img src="${json.sprites.default}" alt=${json.name}/>
-        <h2>${json.name}</h2>
+        <p>${json.name}</p>
     </article>
+    <button>Info</button>
 `
 }
 
