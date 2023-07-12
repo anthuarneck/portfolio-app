@@ -12,7 +12,7 @@ example.innerText = "Please hyphonate 2 word items. (e.g. super-potion)";
 let errorMessage = document.createElement("p");
 errorMessage.style.color = "red";
 
-button.addEventListener("click", (event) => {
+form.addEventListener("submit", (event) => {
   event.preventDefault();
   const name = input.value;
 
