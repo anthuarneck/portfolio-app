@@ -1,10 +1,45 @@
-article {
-    border: 1px solid red;
-    width: 20%;
-    border-radius: 25%;
-}
-
 img {
     height: 75px;
     width: 75px;
+}
+
+body {
+    --bs-body-font-family: var(--bs-font-monospace);
+    --bs-body-line-height: 1.4;
+    color: purple;
+}
+
+article {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-row: 2;
+}
+
+article p {
+    text-align: center;
+}
+
+article button {
+    align-items: center;
+
+}
+
+img {
+    
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+.main {
+    grid-column: 2;
+}
+
+section {
+    display: contents;
+    grid-row: 2;
 }
