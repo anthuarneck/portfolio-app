@@ -7,7 +7,7 @@ const itemList = document.querySelector(".item");
 const button = document.querySelector("button");
 const example = document.querySelector(".example");
 
-example.innerText = "Please hyphonate 2 word items. (e.g. super-potion)";
+example.innerText = "Please hyphonate multi-word items. (e.g. super-potion)";
 
 let errorMessage = document.createElement("p");
 errorMessage.style.color = "red";
@@ -49,20 +49,23 @@ function showItem(json) {
   img.src = json.sprites.default;
   img.alt = json.name;
   const p = document.createElement("p");
+
   p.innerText = json.name;
   item.appendChild(img);
   item.appendChild(p);
   item.appendChild(info);
   itemList.appendChild(item);
+
+  console.log(json.cost, json.effect_entries[0].effect)
 }
 
-function generateRandomNumber(max) {
+function _generateRandomNumber(max) {
   return Math.floor(Math.random() * max);
 }
 
 function getRandomItems() {
   for (i = 0; i < 3; i++) {
-    let itemId = generateRandomNumber(200);
+    let itemId = _generateRandomNumber(200);
     fetch(`${url}/${itemId}`)
       .then((data) => data.json())
       .then((json) => {
