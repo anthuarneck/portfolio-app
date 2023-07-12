@@ -3,10 +3,10 @@ const url = "https://pokeapi.co/api/v2/item";
 const form = document.querySelector("form");
 const input = document.querySelector("input");
 const div = document.querySelector("div");
-const item = document.querySelector(".item");
+const itemList = document.querySelector(".item");
 const button = document.querySelector("button");
 
-button.addEventListener("click", (event) => {
+form.addEventListener("submit", (event) => {
   event.preventDefault();
   const name = input.value;
 
@@ -17,39 +17,41 @@ button.addEventListener("click", (event) => {
       showItem(json);
     })
     .catch((err) => showError(err));
+  form.reset();
 });
 
 function showItem(json) {
-  item.innerHTML += `
-    <article>
-        <img src="${json.sprites.default}" alt=${json.name}/>
-        <p>${json.name}</p>
-    </article>
-    <button>Info</button>
-`;
+  const info = document.createElement("button");
+  info.innerText = "Info";
+
+  info.addEventListener("click", (event) => {
+    event.preventDefault();
+    console.log("hello");
+  });
+
+  const item = document.createElement("article");
+  const img = document.createElement("img");
+  img.src = json.sprites.default;
+  img.alt = json.name;
+  const p = document.createElement("p");
+  p.innerText = json.name;
+  item.appendChild(img);
+  item.appendChild(p);
+  item.appendChild(info);
+  itemList.appendChild(item);
 }
 
 function showError(err) {
-  item.innerHTML += `
+  form.append(`
     <div class="error">
         <p>An error has occured!</p>
         <p class="message">${err}</p>
     </div>
-    `;
+    `);
 }
 
 function generateRandomNumber(max) {
   return Math.floor(Math.random() * max);
-}
-
-function defaultItems(json) {
-  item.innerHTML += `
-        <article>
-        <img src="${json.sprites.default}" alt=${json.name}/>
-        <p>${json.name}</p>
-    </article>
-    <button>Info</button>
-        `;
 }
 
 function getRandomItems() {
@@ -59,7 +61,7 @@ function getRandomItems() {
       .then((data) => data.json())
       .then((json) => {
         console.log(json);
-        defaultItems(json);
+        showItem(json);
       });
   }
 }
