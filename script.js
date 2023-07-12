@@ -5,20 +5,35 @@ const input = document.querySelector("input");
 const div = document.querySelector("div");
 const itemList = document.querySelector(".item");
 const button = document.querySelector("button");
+const example = document.querySelector(".example");
 
-form.addEventListener("submit", (event) => {
+example.innerText = "Please hyphonate 2 word items. (e.g. super-potion)";
+
+let errorMessage = document.createElement("p");
+errorMessage.style.color = "red";
+
+button.addEventListener("click", (event) => {
   event.preventDefault();
   const name = input.value;
+
+  if (!name) {
+    errorMessage.textContent = "Error: Item is non-existent";
+  } else errorMessage.textContent = "";
 
   fetch(`${url}/${name}`)
     .then((data) => data.json())
     .then((json) => {
-      console.log(json);
       showItem(json);
     })
     .catch((err) => showError(err));
   form.reset();
 });
+
+function showError(err) {
+  errorMessage.textContent = "";
+  errorMessage.textContent = err;
+  form.append(errorMessage);
+}
 
 function showItem(json) {
   const info = document.createElement("button");
@@ -39,15 +54,6 @@ function showItem(json) {
   item.appendChild(p);
   item.appendChild(info);
   itemList.appendChild(item);
-}
-
-function showError(err) {
-  form.append(`
-    <div class="error">
-        <p>An error has occured!</p>
-        <p class="message">${err}</p>
-    </div>
-    `);
 }
 
 function generateRandomNumber(max) {
