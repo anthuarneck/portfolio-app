@@ -41,7 +41,7 @@ function showItem(json) {
 
   info.addEventListener("click", (event) => {
     event.preventDefault();
-    console.log("hello");
+    window.location.href = `backpage.html?id=${json.id}`;
   });
 
   const item = document.createElement("article");
@@ -76,3 +76,5 @@ function getRandomItems() {
 }
 
 getRandomItems();
+
+
