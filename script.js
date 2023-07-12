@@ -55,8 +55,6 @@ function showItem(json) {
   item.appendChild(p);
   item.appendChild(info);
   itemList.appendChild(item);
-
-  console.log(json.cost, json.effect_entries[0].effect)
 }
 
 function _generateRandomNumber(max) {
@@ -76,5 +74,3 @@ function getRandomItems() {
 }
 
 getRandomItems();
-
-
