@@ -67,7 +67,6 @@ function getRandomItems() {
     fetch(`${url}/${itemId}`)
       .then((data) => data.json())
       .then((json) => {
-        console.log(json);
         showItem(json);
       });
   }
