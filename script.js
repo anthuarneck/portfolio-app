@@ -10,7 +10,7 @@ const example = document.querySelector(".example");
 example.innerText = "Please hyphonate multi-word items. (e.g. super-potion)";
 
 let errorMessage = document.createElement("p");
-errorMessage.style.color = "red";
+errorMessage.style.color = "yellow";
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
