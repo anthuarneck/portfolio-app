@@ -7,7 +7,7 @@ const itemList = document.querySelector(".item");
 const button = document.querySelector("button");
 const example = document.querySelector(".example");
 
-example.innerText = "Please hyphonate multi-word items. (e.g. super-potion)";
+example.innerText = "Please hyphonate multi-word items. (e.g. poke-ball)";
 
 let errorMessage = document.createElement("p");
 errorMessage.style.color = "yellow";

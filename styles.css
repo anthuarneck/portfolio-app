@@ -8,12 +8,19 @@ header h1 {
     padding: 25px;
 }
 
-header {
-    
+.search {
+    background-color: aliceblue;
+    /* color:aliceblue; */
+    margin: 0;
+    padding: 10px;
+    text-align: center;
+
 }
 
+
+
 .container {
-    border-top: 2px solid black;
+    border-top: 2px solid rgb(48, 48, 48);
     padding: 30px;
 
 }
