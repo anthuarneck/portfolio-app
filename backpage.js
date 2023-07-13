@@ -14,9 +14,13 @@ fetch(`${url}/${itemId}`)
     
     const itemDescription = document.createElement("p");
     itemDescription.innerText = `Description: ${json.effect_entries[0].effect}`;
+
+    const article = document.createElement("article")
     
-    itemList.appendChild(img);
-    itemList.appendChild(cost);
-    itemList.appendChild(itemDescription);
+    article.appendChild(img);
+    article.appendChild(cost);
+    article.appendChild(itemDescription);
+
+    itemList.appendChild(article)
   })
   .catch((err) => console.log(err));
