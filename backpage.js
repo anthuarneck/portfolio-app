@@ -6,6 +6,9 @@ fetch(`${url}/${itemId}`)
   .then((data) => data.json())
   .then((json) => {
 
+    const name = document.createElement("h2")
+    name.innerText = json.name;
+
     const img = document.createElement("img");
     img.src = json.sprites.default;
 
@@ -17,6 +20,7 @@ fetch(`${url}/${itemId}`)
 
     const article = document.createElement("article")
     
+    article.appendChild(name)
     article.appendChild(img);
     article.appendChild(cost);
     article.appendChild(itemDescription);
