@@ -6,7 +6,7 @@ img {
 body {
     --bs-body-font-family: var(--bs-font-monospace);
     --bs-body-line-height: 1.4;
-    color: purple;
+   
 }
 
 article {
@@ -22,13 +22,13 @@ article p {
     text-align: center;
 }
 
-a {
-    border: 1px solid red;
-    border-radius: 5px;
-}
 
 article button {
     align-items: center;
+}
+
+button:hover {
+    background-color: red;
 }
 
 h2 {
@@ -44,11 +44,6 @@ form button {
     align-self: center;
 }
 
-.container {
-    /* display: flex; */
-    
-
-}
 
 .main {
     display: flex;
@@ -56,7 +51,6 @@ form button {
     align-items: center;
     grid-column: 2;
 }
-
 
 
 .item {
@@ -75,4 +69,9 @@ form button {
 #main img {
     align-self: center;
     justify-self: center;
+}
+
+ {
+    background-color: #a40606;
+background-image: linear-gradient(315deg, #a40606 0%, #d98324 74%);
 }
