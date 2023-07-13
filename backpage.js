@@ -13,7 +13,7 @@ fetch(`${url}/${itemId}`)
     img.src = json.sprites.default;
 
     const cost = document.createElement("p");
-    cost.innerText = `Cost: ${json.cost} PokeDollars`;
+    cost.innerText = `Cost: ${json.cost} PokéDollars`;
     
     const itemDescription = document.createElement("p");
     itemDescription.innerText = `Description: ${json.effect_entries[0].effect}`;

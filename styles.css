@@ -8,10 +8,22 @@ header h1 {
     padding: 25px;
 }
 
+header {
+    
+}
+
+.container {
+    border-top: 2px solid black;
+    padding: 30px;
+
+}
+
+
 body {
     height: 100vh;
     --bs-body-font-family: var(--bs-font-monospace);
     --bs-body-line-height: 1.4;
+    
 }
 
 article {
@@ -68,7 +80,8 @@ form button {
 
 
 #main article {
-    grid-column: 2;
+    grid-column-start: 1;
+    grid-column-end: 4;
 }
 
 #main img {
