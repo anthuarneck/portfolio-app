@@ -3,6 +3,11 @@ img {
     width: 75px;
 }
 
+header h1 {
+    margin: 0;
+    padding: 25px;
+}
+
 body {
     height: 100vh;
     --bs-body-font-family: var(--bs-font-monospace);
@@ -69,4 +74,16 @@ form button {
 #main img {
     align-self: center;
     justify-self: center;
+}
+
+@media (max-width: 660px) {
+    .item {
+        grid-template-columns: 1fr;
+    }
+    form {
+        display: grid;
+    }
+    h1 {
+        text-align: center;
+    }
 }
